@@ -13,6 +13,15 @@ export class Pokemon {
     @Prop()
     type: Array<string>;
 
+    @Prop()
+    moves: Array<object>;
+
+    @Prop()
+    abilities: Array<object>;
+
+    @Prop()
+    sprites: Array<object>;
+
 }
 
 export const PokemonSchema = SchemaFactory.createForClass(Pokemon);
