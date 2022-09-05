@@ -1,9 +1,10 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './controller/users/users.module';
 import { PokemonsModule } from './controller/pokemons/pokemons.module';
+import { LoggerMiddleware } from './Log/logger.middleware';
 
 @Module({
   imports: [
@@ -13,4 +14,8 @@ import { PokemonsModule } from './controller/pokemons/pokemons.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}
