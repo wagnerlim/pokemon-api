@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreatePokemonDto } from './dto/create-pokemon.dto';
-import { UpdatePokemonDto } from './dto/update-pokemon.dto';
-import { Pokemon, PokemonDocument } from './entities/pokemon.entity';
+import { CreatePokemonDto } from './schema/create-pokemon.dto';
+import { UpdatePokemonDto } from './schema/update-pokemon.dto';
+import { Pokemon, PokemonDocument } from './schema/pokemon.schema';
 
 @Injectable()
 export class PokemonsService {

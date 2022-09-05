@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { PokemonsModule } from './pokemons/pokemons.module';
+import { UsersModule } from './controller/users/users.module';
+import { PokemonsModule } from './controller/pokemons/pokemons.module';
 
 @Module({
   imports: [
