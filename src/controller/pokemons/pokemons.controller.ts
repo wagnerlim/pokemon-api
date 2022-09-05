@@ -77,6 +77,7 @@ export class PokemonsController {
         "abilities": abilities,
         "sprites": pokemon.sprites
       }
+      return pokemonInfo
     } catch (error) {
       if (error.response.status === 404) {
         return {"message":'Pokemon not found'}
