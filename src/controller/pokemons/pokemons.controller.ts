@@ -88,8 +88,6 @@ export class PokemonsController {
 
   @Post('populate/:lastIndex')
   async populateMongoDb(@Param('lastIndex') lastIndex: string) {
-    console.log('Iniciou');
-    console.log('lastIndex :>> ', lastIndex);
     for (let index = 1; index <= Number(lastIndex); index++) {
       let res = await this.searchById(String(index));
       await this.create(res);

@@ -5,17 +5,25 @@ import { AppService } from './app.service';
 import { UsersModule } from './controller/users/users.module';
 import { PokemonsModule } from './controller/pokemons/pokemons.module';
 import { LoggerMiddleware } from './Log/logger.middleware';
+import { DatabaseModule } from './database/database.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/?serverSelectionTimeoutMS=5000&connectTimeoutMS=10000'),
+    ConfigModule.forRoot({
+      isGlobal: true
+    }),
     UsersModule,
-    PokemonsModule],
+    PokemonsModule,
+    DatabaseModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
+
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }
+
