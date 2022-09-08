@@ -11,7 +11,7 @@ export class Pokemon {
     name: string;
 
     @Prop()
-    type: Array<string>;
+    type: Array<object>;
 
     @Prop()
     moves: Array<object>;
